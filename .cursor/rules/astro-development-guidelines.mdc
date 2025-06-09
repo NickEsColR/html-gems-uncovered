@@ -1,0 +1,23 @@
+---
+description: 
+globs: *.astro
+alwaysApply: false
+---
+## General
+
+- Enforce strict TypeScript settings, ensuring type safety across the project.
+- Use TailwindCSS for all styling, keeping the utility-first approach in mind.
+- Ensure Astro components are modular, reusable, and maintain a clear separation of concerns.
+- Order astro blocks like follows: component script, component template, html script tag, html style tag if required.
+- All astro components files must be inside src/components/**.*.astro folder
+
+## Performance Optimization
+
+- Minimize use of client-side JavaScript; leverage Astro's static generation.
+- Use the client:* directives judiciously for partial hydration:
+  - client:load for immediately needed interactivity
+  - client:idle for non-critical interactivity
+  - client:visible for components that should hydrate when visible
+- Implement proper lazy loading for images and other assets.
+
+- Utilize Astro's built-in asset optimization features.
