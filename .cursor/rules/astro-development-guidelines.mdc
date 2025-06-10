@@ -10,6 +10,7 @@ alwaysApply: false
 - Ensure Astro components are modular, reusable, and maintain a clear separation of concerns.
 - Order astro blocks like follows: component script, component template, html script tag, html style tag if required.
 - All astro components files must be inside src/components/**.*.astro folder
+- Always use '@' alias to refer './'
 
 ## Performance Optimization
 
