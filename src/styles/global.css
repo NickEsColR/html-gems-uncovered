@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --brand-primary: #0d1b2a;
-  --brand-secondary: #1b263b;
-  --brand-accent: #415a77;
-  --brand-text: #e0e1dd;
-  --brand-highlight: #778da9;
+  --color-theme-primary: #0d1b2a;
+  --color-theme-secondary: #1b263b;
+  --color-theme-accent: #415a77;
+  --color-theme-text: #e0e1dd;
+  --color-theme-highlight: #778da9;
 }
