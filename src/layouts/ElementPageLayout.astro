@@ -1,0 +1,33 @@
+---
+import MainLayout from "@/src/layouts/MainLayout.astro";
+import CodeSnippet from "@/src/components/CodeSnippet.astro";
+
+interface Props {
+    title: string;
+    elementName: string;
+    htmlCode: string;
+    jsCode?: string;
+}
+
+const { title, elementName, htmlCode, jsCode } = Astro.props;
+---
+<MainLayout {title}>
+    <a href="/" class="text-theme-highlight hover:text-theme-text mb-8 block">&larr; Back to all elements</a>
+    <h1 class="text-4xl font-bold mb-4" set:html={elementName} />
+    
+    <slot name="description" />
+
+    <h2 class="text-3xl font-bold mt-12 mb-4">When to use it</h2>
+    <slot name="when-to-use" />
+
+    <h2 class="text-3xl font-bold mt-12 mb-4">Live Demo</h2>
+    <div class="p-8 border-2 border-dashed border-theme-accent rounded-lg">
+        <slot name="demo" />
+    </div>
+
+    <h2 class="text-3xl font-bold mt-12 mb-4">Code Snippet</h2>
+    <p>Here's the code you need to implement it. Click copy to get the code.</p>
+    
+    <CodeSnippet code={htmlCode} lang="html" />
+    {jsCode && <CodeSnippet code={jsCode} lang="js" />}
+</MainLayout> 

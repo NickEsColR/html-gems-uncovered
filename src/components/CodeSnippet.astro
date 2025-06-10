@@ -1,0 +1,35 @@
+---
+import { Code } from 'astro:components';
+
+interface Props {
+    code: string;
+    lang: "html" | "js";
+}
+
+const { code, lang } = Astro.props;
+---
+
+<div class="bg-neutral-800 rounded-lg my-6">
+    <div class="flex justify-between items-center px-4 py-2 border-b-2 border-theme-accent">
+        <span class="text-xs font-sans text-theme-highlight">{lang}</span>
+        <button class="copy-button text-xs font-sans text-theme-highlight hover:text-theme-text">Copy</button>
+    </div>
+    <div class="p-4 overflow-x-auto">
+        <pre><Code code={code} lang={lang} /></pre>
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll('.copy-button').forEach(button => {
+        button.addEventListener('click', () => {
+            const codeContainer = button.closest('.bg-theme-secondary')?.querySelector('code');
+            if (codeContainer) {
+                navigator.clipboard.writeText(codeContainer.innerText);
+                button.textContent = 'Copied!';
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                }, 2000);
+            }
+        });
+    });
+</script> 
