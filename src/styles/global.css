@@ -1,9 +1,28 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
-@theme {
-  --color-theme-primary: #0d1b2a;
-  --color-theme-secondary: #1b263b;
-  --color-theme-accent: #415a77;
-  --color-theme-text: #e0e1dd;
-  --color-theme-highlight: #778da9;
+:root {
+  --app-primary: #e0e1dd;
+  --app-secondary: #ffffff;
+  --app-accent: #415a77;
+  --app-text: #0d1b2a;
+  --app-highlight: #778da9;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --app-primary: #0d1b2a;
+    --app-secondary: #1b263b;
+    --app-accent: #415a77;
+    --app-text: #e0e1dd;
+    --app-highlight: #778da9;
+  }
+}
+
+@theme inline {
+  --color-theme-primary: var(--app-primary);
+  --color-theme-secondary: var(--app-secondary);
+  --color-theme-accent: var(--app-accent);
+  --color-theme-text: var(--app-text);
+  --color-theme-highlight: var(--app-highlight);
 }
