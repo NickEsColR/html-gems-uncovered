@@ -16,9 +16,10 @@ export const DIALOG_HTML_CODE = `
   >Open Dialog</button
 >`;
 
-export const DIALOG_JS_CODE = `const dialog = document.getElementById("myDialog") as HTMLDialogElement;
-const openButton = document.getElementById("openDialog") as HTMLButtonElement;
-const closeButton = document.getElementById("closeDialog") as HTMLButtonElement;
+export const DIALOG_JS_CODE = `
+const dialog = document.getElementById("myDialog");
+const openButton = document.getElementById("openDialog");
+const closeButton = document.getElementById("closeDialog");
 
 if (dialog && openButton && closeButton) {
   openButton.addEventListener("click", () => {
