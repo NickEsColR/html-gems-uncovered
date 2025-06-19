@@ -2,12 +2,25 @@
 import ElementPageLayout from "@/src/layouts/ElementPageLayout.astro";
 import DialogComponent from "@/src/components/elements/Dialog.astro";
 import { DIALOG_HTML_CODE, DIALOG_JS_CODE } from "@/src/consts/dialogCode";
+import type { Snippet } from "@/src/types/codeSnippet";
+
+const snippets: Snippet[] = [
+  {
+    code: DIALOG_HTML_CODE,
+    lang: "html",
+    title: "HTML",
+  },
+  {
+    code: DIALOG_JS_CODE,
+    lang: "js",
+    title: "JavaScript",
+  },
+];
 ---
 <ElementPageLayout
     title="Dialog Element"
     elementName="The &lt;dialog&gt; Element"
-    htmlCode={DIALOG_HTML_CODE}
-    jsCode={DIALOG_JS_CODE}
+    snippets={snippets}
 >
     <p slot="description" class="text-lg text-theme-highlight mb-6">
         The &lt;dialog&gt; element represents a dialog box or other interactive component, such as a dismissible alert, inspector, or sub-window.

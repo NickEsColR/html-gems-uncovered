@@ -1,15 +1,15 @@
 ---
 import MainLayout from "@/src/layouts/MainLayout.astro";
 import CodeSnippet from "@/src/components/CodeSnippet.astro";
+import type { Snippet } from "@/src/types/codeSnippet";
 
 interface Props {
     title: string;
     elementName: string;
-    htmlCode: string;
-    jsCode?: string;
+    snippets: Snippet[];
 }
 
-const { title, elementName, htmlCode, jsCode } = Astro.props;
+const { title, elementName, snippets } = Astro.props;
 ---
 <MainLayout {title}>
   <header>
@@ -31,7 +31,6 @@ const { title, elementName, htmlCode, jsCode } = Astro.props;
     <h2 class="not-prose text-4xl font-bold mt-12 mb-4">Code Snippet</h2>
     <p>Here's the code you need to implement it. Click copy to get the code.</p>
     
-    <CodeSnippet code={htmlCode} lang="html" />
-    {jsCode && <CodeSnippet code={jsCode} lang="js" />}
+    <CodeSnippet snippets={snippets} />
   </main>
 </MainLayout> 

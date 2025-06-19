@@ -1,40 +1,80 @@
 ---
 import { Code } from "astro:components";
+import type { Snippet } from "@/src/types/codeSnippet";
 
 interface Props {
-  code: string;
-  lang: "html" | "js";
+  snippets: Snippet[];
 }
 
-const { code, lang } = Astro.props;
+const { snippets } = Astro.props;
 ---
 
 <div class="bg-neutral-800 rounded-lg my-6">
   <div
     class="flex justify-between items-center px-4 py-2 border-b-2 border-theme-accent"
   >
-    <span class="text-xs font-sans text-theme-highlight">{lang}</span>
+    <div class="flex space-x-4">
+      {snippets.map((snippet, index) => (
+        <button
+          class={`tab-button text-xs font-sans text-theme-highlight hover:text-theme-text ${
+            index === 0 ? "active-tab" : ""
+          }`}
+          data-index={index}
+        >
+          {snippet.title}
+        </button>
+      ))}
+    </div>
     <button
       class="copy-button text-xs font-sans text-theme-highlight hover:text-theme-text"
       >Copy</button
     >
   </div>
   
-  <Code code={code} lang={lang} />
+  {snippets.map((snippet, index) => (
+    <div class={`code-container ${index === 0 ? "block" : "hidden"}`} data-index={index}>
+      <Code code={snippet.code} lang={snippet.lang} />
+    </div>
+  ))}
 </div>
 
 <script>
-  document.querySelectorAll(".copy-button").forEach((button) => {
-    button.addEventListener("click", () => {
-      const codeContainer = button
-        .closest(".bg-theme-secondary")
-        ?.querySelector("code");
-      if (codeContainer) {
-        navigator.clipboard.writeText(codeContainer.innerText);
-        button.textContent = "Copied!";
-        setTimeout(() => {
-          button.textContent = "Copy";
-        }, 2000);
+  document.addEventListener("DOMContentLoaded", () => {
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const codeContainers = document.querySelectorAll(".code-container");
+    const copyButton = document.querySelector(".copy-button");
+
+    (Array.from(tabButtons) as HTMLElement[]).forEach((button) => {
+      button.addEventListener("click", () => {
+        (Array.from(tabButtons) as HTMLElement[]).forEach((btn) => btn.classList.remove("active-tab"));
+        button.classList.add("active-tab");
+
+        const targetIndex = button.dataset.index;
+        (Array.from(codeContainers) as HTMLElement[]).forEach((container) => {
+          if (container.dataset.index === targetIndex) {
+            container.classList.remove("hidden");
+            container.classList.add("block");
+          } else {
+            container.classList.remove("block");
+            container.classList.add("hidden");
+          }
+        });
+      });
+    });
+
+    copyButton?.addEventListener("click", () => {
+      const activeCodeContainer = document.querySelector(".code-container.block");
+      if (activeCodeContainer) {
+        const codeElement = activeCodeContainer.querySelector("code");
+        if (codeElement) {
+          navigator.clipboard.writeText(codeElement.innerText);
+          if (copyButton) {
+            copyButton.textContent = "Copied!";
+            setTimeout(() => {
+              copyButton.textContent = "Copy";
+            }, 2000);
+          }
+        }
       }
     });
   });
