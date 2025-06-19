@@ -1,7 +1,36 @@
 ---
 import MainLayout from "@/src/layouts/MainLayout.astro";
+import Grid from "@/src/components/Grid.astro";
+import type { CardData } from "@/src/types/cardData";
+
+const cards: CardData[] = [
+	{
+		title: "Dialog",
+		description: "Create accessible modal dialogs and popups.",
+		link: "/elements/dialog",
+	},
+	{
+		title: "Details & Summary",
+		description: "Create native accordions and collapsible content.",
+		link: "/elements/details",
+	},
+	{
+		title: "Datalist",
+		description: "Provide autocomplete suggestions for input fields.",
+		link: "/elements/datalist",
+	},
+	{
+		title: "Meter",
+		description: "Display scalar measurements within a known range.",
+		link: "/elements/meter",
+	},
+];
 ---
 
-<MainLayout title="Home">
-	<h1>Home</h1>
+<MainLayout title="HTML Gems Uncovered">
+	<header class="text-center mb-12">
+		<h1 class="text-5xl font-bold mb-2">HTML Gems Uncovered</h1>
+		<p class="text-xl text-theme-highlight">A collection of powerful and underused HTML elements.</p>
+	</header>
+	<Grid cards={cards} />
 </MainLayout>

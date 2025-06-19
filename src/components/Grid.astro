@@ -1,0 +1,16 @@
+---
+import Card from "@/src/components/cards/Card.astro";
+import type { CardData } from "@/src/types/cardData";
+
+interface Props {
+    cards: CardData[];
+}
+
+const { cards } = Astro.props;
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+    {cards.map((card) => (
+        <Card card={card} />
+    ))}
+</div> 

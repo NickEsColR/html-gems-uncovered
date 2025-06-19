@@ -1,0 +1,21 @@
+---
+import type { CardData } from "@/src/types/cardData";
+
+interface Props {
+  card: CardData;
+}
+
+const { card } = Astro.props;
+---
+
+<a
+  href={card.link}
+  class="block p-6 bg-theme-secondary border-2 border-theme-border rounded-lg hover:border-theme-accent transition-colors duration-200"
+>
+  <h2 class="text-2xl font-bold text-theme-highlight mb-2">
+    {card.title}
+  </h2>
+  <p class="text-theme-text">
+    {card.description}
+  </p>
+</a>
