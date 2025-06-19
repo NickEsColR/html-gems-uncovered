@@ -1,0 +1,38 @@
+<article>
+  <!-- Hidden radio inputs that hold the state -->
+  <input
+    type="radio"
+    id="tab-preview"
+    name="tab"
+    class="peer/preview sr-only"
+    checked
+  />
+  <input type="radio" id="tab-code" name="tab" class="peer/code sr-only" />
+
+  <!-- Tab labels styled based on the peer's state -->
+
+  <label
+    for="tab-preview"
+    class="rounded-t-lg cursor-pointer px-4 py-3 font-semibold text-theme-text peer-checked/preview:bg-theme-secondary peer-checked/preview:text-white"
+  >
+    Preview
+  </label>
+  <label
+    for="tab-code"
+    class="rounded-t-lg cursor-pointer px-4 py-3 font-semibold text-theme-text peer-checked/code:bg-theme-secondary peer-checked/code:text-white"
+  >
+    Code
+  </label>
+
+  <!-- Content panels that appear based on the peer's state -->
+  <div
+    class="hidden min-h-80 items-center justify-center rounded-b-lg bg-theme-secondary p-2 peer-checked/preview:flex mt-2"
+  >
+    <slot name="preview" />
+  </div>
+  <div
+    class="hidden min-h-80 items-center justify-center rounded-b-lg bg-theme-secondary p-2 peer-checked/code:flex mt-2"
+  >
+    <slot name="code" />
+  </div>
+</article>
