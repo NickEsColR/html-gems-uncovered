@@ -9,16 +9,26 @@ interface Props {
 const { snippets } = Astro.props;
 ---
 
-<div class="bg-neutral-800 rounded-lg my-6">
+<div class="my-6 rounded-lg overflow-hidden border-2 border-theme-accent">
   <div
-    class="flex justify-between items-center px-4 py-2 border-b-2 border-theme-accent"
-  >
-    <div class="flex space-x-4">
+    class="flex justify-between items-center pr-4 bg-theme-primary border-b-2 border-theme-accent" >
+    <div class="flex relative z-0">
       {snippets.map((snippet, index) => (
         <button
-          class={`tab-button text-xs font-sans text-theme-highlight hover:text-theme-text ${
-            index === 0 ? "active-tab" : ""
-          }`}
+          class:list={[
+            "tab-button",
+            "text-xs",
+            "font-sans",
+            "py-2",
+            "px-4",
+            "cursor-pointer",
+            "relative",
+            "z-10",
+            "hover:font-bold",
+            {
+              "active-tab": index === 0,
+            },
+          ]}
           data-index={index}
         >
           {snippet.title}
@@ -31,12 +41,26 @@ const { snippets } = Astro.props;
     >
   </div>
   
-  {snippets.map((snippet, index) => (
-    <div class={`code-container ${index === 0 ? "block" : "hidden"}`} data-index={index}>
-      <Code code={snippet.code} lang={snippet.lang} />
-    </div>
-  ))}
+
+    {snippets.map((snippet, index) => (
+      <div class:list={["code-container", { "block": index === 0, "hidden": index !== 0 }]} data-index={index}>
+        <Code code={snippet.code} lang={snippet.lang} />
+      </div>
+    ))}
+
 </div>
+
+<style>
+
+  .active-tab {
+    background-color:#24292e;
+    color: var(--color-theme-text);
+    border-color: var(--color-theme-accent);
+    border-bottom-color: var(--color-theme-primary);
+    bottom: -2px;
+    font-weight: bold;
+  }
+</style>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
@@ -46,7 +70,9 @@ const { snippets } = Astro.props;
 
     (Array.from(tabButtons) as HTMLElement[]).forEach((button) => {
       button.addEventListener("click", () => {
-        (Array.from(tabButtons) as HTMLElement[]).forEach((btn) => btn.classList.remove("active-tab"));
+        (Array.from(tabButtons) as HTMLElement[]).forEach((btn) =>
+          btn.classList.remove("active-tab")
+        );
         button.classList.add("active-tab");
 
         const targetIndex = button.dataset.index;
@@ -63,7 +89,9 @@ const { snippets } = Astro.props;
     });
 
     copyButton?.addEventListener("click", () => {
-      const activeCodeContainer = document.querySelector(".code-container.block");
+      const activeCodeContainer = document.querySelector(
+        ".code-container.block"
+      );
       if (activeCodeContainer) {
         const codeElement = activeCodeContainer.querySelector("code");
         if (codeElement) {
