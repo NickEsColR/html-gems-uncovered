@@ -1,0 +1,16 @@
+---
+interface Props {
+  datalistId: string;
+  label: string;
+  name: string;
+  options: string[];
+}
+
+const { datalistId = "select-options", name = "select-choices",label = "Select from the list:", options = ["Option 1", "Option 2", "Option 3", "Option 4", "Option 5"] } = Astro.props;
+---
+
+<label for={name} class="block font-bold mr-4">{label}</label>
+<input list={datalistId} id={name} name={name} class="p-2 rounded bg-theme-primary/40 text-theme-text" />
+<datalist id={datalistId}>
+  {options.map((option) => <option value={option} />)}
+</datalist>

@@ -5,6 +5,7 @@ import { DIALOG_HTML_CODE, DIALOG_JS_CODE } from "@/src/consts/dialogCode";
 import type { Snippet } from "../types/codeSnippet";
 import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 import { DETAILS_HTML_CODE } from "@/src/consts/detailsCode";
+import { DATALIST_HTML_CODE } from "@/src/consts/datalistCode";
 
 interface ElementContent {
     slug: string;
@@ -69,16 +70,7 @@ export const elementsContent: ElementContent[] = [
         ],
         snippets: [
             {
-                code: `<label for="browser-choice">Choose a browser from the list:</label>
-<input list="browsers" id="browser-choice" name="browser-choice" />
-
-<datalist id="browsers">
-    <option value="Chrome">
-    <option value="Firefox">
-    <option value="Safari">
-    <option value="Edge">
-    <option value="Opera">
-</datalist>`,
+                code: DATALIST_HTML_CODE,
                 lang: "html",
                 title: "HTML",
             },
