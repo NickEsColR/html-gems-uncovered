@@ -1,0 +1,40 @@
+---
+import MainLayout from "@/src/layouts/MainLayout.astro";
+import CodeSnippet from "@/src/components/CodeSnippet.astro";
+import DemoPanel from "@/src/components/ui/DemoPanel.astro";
+import { elementsContent } from "@/src/content/elements";
+
+export async function getStaticPaths() {
+  return elementsContent.map((element) => {
+    const { slug, ...props } = element;
+    return {
+      params: { element: slug },
+      props,
+    };
+  });
+}
+
+const { title, elementName, snippets, description, whenToUse, DemoComponent } =
+  Astro.props;
+---
+<MainLayout {title}>
+  <header>
+    <a href="/" class="text-theme-highlight hover:text-theme-text mb-8 block">&larr; Back to all elements</a>
+  </header>
+  <main class="max-w-none dark:prose-invert">
+    <h1 class="text-7xl font-bold mb-4">{elementName}</h1>
+    
+    <p class="text-lg text-theme-highlight mb-6 text-balance">
+      {description}
+    </p>
+
+    <h2 class="text-4xl font-bold mt-12 mb-4">When to use it</h2>
+    {whenToUse.map((use) => <p class="mb-4 text-balance">{use}</p>)}
+
+    <h2 class="text-4xl font-bold mt-12 mb-4">Live Demo & Code</h2>
+    <DemoPanel>
+      <DemoComponent slot="preview" />
+      <CodeSnippet {snippets} slot="code"/>
+    </DemoPanel>
+  </main>
+</MainLayout>
