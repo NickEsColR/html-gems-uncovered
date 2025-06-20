@@ -1,4 +1,5 @@
-import DialogComponent from "@/src/components/elements/Dialog.astro";
+import Dialog from "@/src/components/elements/Dialog.astro";
+import Details from "@/src/components/elements/Details.astro";
 import { DIALOG_HTML_CODE, DIALOG_JS_CODE } from "@/src/consts/dialogCode";
 import type { Snippet } from "../types/codeSnippet";
 import type { AstroComponentFactory } from "astro/runtime/server/index.js";
@@ -35,6 +36,27 @@ export const elementsContent: ElementContent[] = [
                 title: "JavaScript",
             },
         ],
-        DemoComponent: DialogComponent
+        DemoComponent: Dialog
     },
+    {
+        slug: "details",
+        title: "Details & Summary Elements",
+        elementName: "The <details> and <summary> Elements",
+        description: "The <details> element creates a disclosure widget in which information is only visible when the widget is toggled into an 'open' state. A <summary> element provides a summary, caption, or legend for the <details> element's disclosure box.",
+        whenToUse: [
+            "Use the <details> and <summary> elements to create native accordions or 'show/hide' widgets without any JavaScript. This is perfect for FAQs, collapsible sections of content, or any time you want to hide content until the user explicitly chooses to see it.",
+            "This is another great win for accessibility, as it's a standard HTML element that screen readers and other assistive technologies understand."
+        ],
+        snippets: [
+            {
+                code: `<details>
+  <summary>Click to see more</summary>
+  <p>Here are some more details about this topic. You can put any content in here, like text, images, or even other elements.</p>
+</details>`,
+                lang: "html",
+                title: "HTML",
+            },
+        ],
+        DemoComponent: Details
+    }
 ]; 
