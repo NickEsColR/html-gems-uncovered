@@ -1,11 +1,13 @@
 import Dialog from "@/src/components/elements/Dialog.astro";
 import Details from "@/src/components/elements/Details.astro";
 import Datalist from "@/src/components/elements/Datalist.astro";
+import Meter from "@/src/components/elements/Meter.astro";
 import { DIALOG_HTML_CODE, DIALOG_JS_CODE } from "@/src/consts/dialogCode";
 import type { Snippet } from "../types/codeSnippet";
 import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 import { DETAILS_HTML_CODE } from "@/src/consts/detailsCode";
 import { DATALIST_HTML_CODE } from "@/src/consts/datalistCode";
+import { METER_HTML_CODE } from "@/src/consts/meterCode";
 
 interface ElementContent {
     slug: string;
@@ -76,5 +78,23 @@ export const elementsContent: ElementContent[] = [
             },
         ],
         DemoComponent: Datalist
+    },
+    {
+        slug: "meter",
+        title: "Meter Element",
+        elementName: "The <meter> Element",
+        description: "The <meter> element represents either a scalar value within a known range or a fractional value.",
+        whenToUse: [
+            "Use the <meter> element to display a measurement within a range, such as disk usage, test scores, or a battery level.",
+            "It's ideal for visualizing values that have a minimum, maximum, and possibly low/high/optimum thresholds."
+        ],
+        snippets: [
+            {
+                code: METER_HTML_CODE,
+                lang: "html",
+                title: "HTML",
+            },
+        ],
+        DemoComponent: Meter
     }
 ]; 

@@ -1,0 +1,33 @@
+---
+interface Props {
+  value?: number;
+  min?: number;
+  max?: number;
+  low?: number;
+  high?: number;
+  optimum?: number;
+  label?: string;
+}
+
+const {
+  value = 0.7,
+  min = 0,
+  max = 1,
+  low = 0.3,
+  high = 0.8,
+  optimum = 1,
+  label = "Progress:"
+} = Astro.props;
+---
+<label class="block font-bold mr-2">{label}</label>
+<meter
+  value={value}
+  min={min}
+  max={max}
+  low={low}
+  high={high}
+  optimum={optimum}
+  class="w-60 h-6"
+>
+  {value}
+</meter> 
