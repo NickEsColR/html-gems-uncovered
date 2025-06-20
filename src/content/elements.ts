@@ -1,8 +1,10 @@
 import Dialog from "@/src/components/elements/Dialog.astro";
 import Details from "@/src/components/elements/Details.astro";
+import Datalist from "@/src/components/elements/Datalist.astro";
 import { DIALOG_HTML_CODE, DIALOG_JS_CODE } from "@/src/consts/dialogCode";
 import type { Snippet } from "../types/codeSnippet";
 import type { AstroComponentFactory } from "astro/runtime/server/index.js";
+import { DETAILS_HTML_CODE } from "@/src/consts/detailsCode";
 
 interface ElementContent {
     slug: string;
@@ -49,14 +51,38 @@ export const elementsContent: ElementContent[] = [
         ],
         snippets: [
             {
-                code: `<details>
-  <summary>Click to see more</summary>
-  <p>Here are some more details about this topic. You can put any content in here, like text, images, or even other elements.</p>
-</details>`,
+                code: DETAILS_HTML_CODE,
                 lang: "html",
                 title: "HTML",
             },
         ],
         DemoComponent: Details
+    },
+    {
+        slug: "datalist",
+        title: "Datalist Element",
+        elementName: "The <datalist> Element",
+        description: "The <datalist> element contains a set of <option> elements that represent the permissible or recommended options available to choose from within other controls.",
+        whenToUse: [
+            "Use the <datalist> element to provide an 'autocomplete' feature on <input> elements. It provides a list of predefined options to the user as they type, which is a great user experience for forms with many possible values.",
+            "The user can select from the suggestions, or type in their own value if it's not on the list. It's more flexible than a <select> element in that way."
+        ],
+        snippets: [
+            {
+                code: `<label for="browser-choice">Choose a browser from the list:</label>
+<input list="browsers" id="browser-choice" name="browser-choice" />
+
+<datalist id="browsers">
+    <option value="Chrome">
+    <option value="Firefox">
+    <option value="Safari">
+    <option value="Edge">
+    <option value="Opera">
+</datalist>`,
+                lang: "html",
+                title: "HTML",
+            },
+        ],
+        DemoComponent: Datalist
     }
 ]; 
