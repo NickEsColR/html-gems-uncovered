@@ -6,6 +6,7 @@ interface Props {
 }
 
 const { card } = Astro.props;
+const displayTitle = card.title.replace(/Elements?/g, '');
 ---
 
 <a
@@ -13,9 +14,9 @@ const { card } = Astro.props;
   class="block p-6 bg-theme-secondary border-2 border-theme-border rounded-lg hover:border-theme-accent transition-colors duration-200"
 >
   <h2 class="text-2xl font-bold text-theme-highlight mb-2">
-    {card.title}
+    {displayTitle}
   </h2>
-  <p class="text-theme-text">
+  <p class="text-theme-text text-clip line-clamp-4">
     {card.description}
   </p>
 </a>
