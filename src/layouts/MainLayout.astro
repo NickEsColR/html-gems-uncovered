@@ -5,8 +5,10 @@ const {
   title,
   description = "A collection of powerful and underused HTML elements. Discover hidden HTML elements that can supercharge your web projects. Explore, learn, and get inspired by practical examples and code snippets.",
   image = "/images/index.webp",
-  url = "https://html-gems-uncovered.netlify.app/",
+  path = "/",
 } = Astro.props;
+const baseUrl = Astro.site?.toString() ?? "";
+const fullUrl = baseUrl.replace(/\/$/, "") + path;
 ---
 
 <html lang="en">
@@ -20,12 +22,12 @@ const {
       name="keywords"
       content="HTML, HTML elements, web development, accessibility, semantic HTML, code snippets, web components, frontend, UI, Astro, TailwindCSS"
     />
-    <link rel="canonical" href={url} />
+    <link rel="canonical" href={fullUrl} />
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={url} />
+    <meta property="og:url" content={fullUrl} />
     <meta property="og:image" content={image} />
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />

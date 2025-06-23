@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 const { title, elementName, snippets, description, whenToUse, DemoComponent } =
   Astro.props;
 ---
-<MainLayout {title}>
+<MainLayout {title} description={description} path={Astro.url.pathname}>
   <header>
     <a href="/" class="text-theme-highlight hover:text-theme-text mb-8 block">&larr; Back to all elements</a>
   </header>
