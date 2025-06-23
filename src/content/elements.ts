@@ -8,6 +8,8 @@ import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 import { DETAILS_HTML_CODE } from "@/src/consts/detailsCode";
 import { DATALIST_HTML_CODE } from "@/src/consts/datalistCode";
 import { METER_HTML_CODE } from "@/src/consts/meterCode";
+import Output from "@/src/components/elements/Output.astro";
+import { OUTPUT_HTML_CODE } from "@/src/consts/outputCode";
 
 interface ElementContent {
     slug: string;
@@ -96,5 +98,23 @@ export const elementsContent: ElementContent[] = [
             },
         ],
         DemoComponent: Meter
+    },
+    {
+        slug: "output",
+        title: "Output Element",
+        elementName: "The <output> Element",
+        description: "The <output> element is used to display the result of a calculation or user action, especially in forms or calculators. It creates a semantic relationship between the inputs and the result, improving accessibility for screen readers.",
+        whenToUse: [
+            "Use the <output> element when you want to display dynamic calculation results in forms or calculators.",
+            "It is especially useful for associating the result with specific input fields using the 'for' attribute, which helps assistive technologies understand the relationship."
+        ],
+        snippets: [
+            {
+                code: OUTPUT_HTML_CODE,
+                lang: "html",
+                title: "HTML",
+            }
+        ],
+        DemoComponent: Output // Placeholder, no Output.astro component yet
     }
 ]; 

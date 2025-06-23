@@ -1,0 +1,10 @@
+---
+---
+<form oninput="result.value = parseInt(a.value) + parseInt(b.value)" class="flex flex-col gap-4 p-6 bg-white rounded-xl shadow-md w-full max-w-xs mx-auto items-center">
+  <label for="a" class="text-sm text-gray-700 font-medium">First number</label>
+  <input type="number" id="a" value="0" class="w-24 px-2 py-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition text-center" aria-label="First number">
+  <label for="b" class="text-sm text-gray-700 font-medium">Second number</label>
+  <input type="number" id="b" value="0" class="w-24 px-2 py-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition text-center" aria-label="Second number">
+  <label for="result" class="text-sm text-gray-700 font-medium">Sum</label>
+  <output name="result" for="a b" class="w-24 px-2 py-1 bg-gray-100 border border-gray-200 rounded text-center font-mono text-lg text-blue-700">0</output>
+</form> 
