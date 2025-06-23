@@ -14,6 +14,8 @@ import Mark from "@/src/components/elements/Mark.astro";
 import { MARK_HTML_CODE } from "@/src/consts/markCode";
 import Time from "@/src/components/elements/Time.astro";
 import { TIME_HTML_CODE } from "@/src/consts/timeCode";
+import Figure from "@/src/components/elements/Figure.astro";
+import { FIGURE_HTML_CODE } from "@/src/consts/figureCode";
 
 interface ElementContent {
     slug: string;
@@ -158,5 +160,24 @@ export const elementsContent: ElementContent[] = [
             }
         ],
         DemoComponent: Time
+    },
+    {
+        slug: "figure",
+        title: "Figure & Figcaption Elements",
+        elementName: "The <figure> and <figcaption> Elements",
+        description: "The <figure> element is used to semantically group media or content with an associated caption, while <figcaption> provides the caption. This improves accessibility and gives meaning to images, code snippets, and quotes.",
+        whenToUse: [
+            "Use <figure> and <figcaption> to add captions to images, code snippets, charts, or quotes.",
+            "They are especially useful in content management systems, blogs, and documentation sites where captions are needed for various types of content.",
+            "Screen readers can announce the caption as related to the content, improving accessibility."
+        ],
+        snippets: [
+            {
+                code: FIGURE_HTML_CODE,
+                lang: "html",
+                title: "HTML",
+            }
+        ],
+        DemoComponent: Figure
     }
 ]; 
