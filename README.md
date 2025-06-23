@@ -1,47 +1,107 @@
-# Astro Starter Kit: Minimal
+# HTML Gems Uncovered
 
-```sh
-pnpm create astro@latest -- --template minimal
-```
+A collection of powerful and underused HTML elements. Discover hidden HTML elements that can supercharge your web projects. Explore, learn, and get inspired by practical examples and code snippets.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
+[![Astro](https://img.shields.io/badge/built%20with-astro-ff5d01?logo=astro)](https://astro.build/)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+---
 
-## 🚀 Project Structure
+## Table of Contents
 
-Inside of your Astro project, you'll see the following folders and files:
+- [About](#about)
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Available Elements](#available-elements)
+- [Getting Started](#getting-started)
+- [Development](#development)
+- [Contributing](#contributing)
+- [License](#license)
+
+---
+
+## About
+
+**HTML Gems Uncovered** is a showcase of lesser-known but powerful HTML elements, complete with interactive demos and code snippets. The goal is to help developers discover and use these elements to build more accessible, semantic, and user-friendly web applications.
+
+## Features
+
+- Interactive demos for each element
+- Copy-paste code snippets
+- Explanations and use cases
+- Built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/)
+
+## Project Structure
 
 ```text
 /
 ├── public/
 ├── src/
-│   └── pages/
-│       └── index.astro
+│   ├── components/
+│   │   ├── elements/      # Element demo components
+│   │   ├── cards/         # Card UI components
+│   │   ├── ui/            # UI helpers (DemoPanel, etc.)
+│   ├── consts/            # Code snippets for elements
+│   ├── content/           # Elements metadata
+│   ├── layouts/           # Main layout
+│   ├── pages/             # Astro pages
+│   ├── styles/            # Global styles
+│   ├── types/             # TypeScript types
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Available Elements
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+| Element         | Description                                                    |
+|----------------|----------------------------------------------------------------|
+| `<dialog>`     | Dialog box/modal window with native accessibility              |
+| `<details>`    | Disclosure widget for collapsible content                      |
+| `<datalist>`   | Autocomplete options for input fields                          |
+| `<meter>`      | Scalar measurement within a known range                        |
+| `<output>`     | Displays calculation or user action results                    |
+| `<mark>`       | Semantic text highlighting                                     |
+| `<time>`       | Machine-readable dates, times, or durations                    |
+| `<figure>`     | Semantic grouping of media/content with captions               |
 
-Any static assets, like images, can be placed in the `public/` directory.
+Explore each element in the [Elements section](src/pages/elements/) for demos and code.
 
-## 🧞 Commands
+## Getting Started
 
-All commands are run from the root of the project, from a terminal:
+1. **Install dependencies:**
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+   ```sh
+   pnpm install
+   ```
 
-## 👀 Want to learn more?
+2. **Start the development server:**
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+   ```sh
+   pnpm dev
+   ```
+
+3. Open [http://localhost:4321](http://localhost:4321) in your browser.
+
+## Development
+
+- `pnpm build` — Build your production site to `./dist/`
+- `pnpm preview` — Preview your build locally
+- `pnpm astro ...` — Run Astro CLI commands
+
+## Contributing
+
+Contributions are welcome!
+
+To contribute:
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/your-feature`)
+3. Make your changes
+4. Commit your changes (`git commit -m 'Add your message'`)
+5. Push to the branch (`git push origin feature/your-feature`)
+6. Open a Pull Request
+
+Please follow the [Conventional Commits](https://www.conventionalcommits.org/) style for commit messages.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE.md).
