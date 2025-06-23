@@ -5,17 +5,84 @@ import type { CardData } from "@/src/types/cardData";
 
 import { elementsContent } from "@/src/content/elements";
 
-const cards: CardData[] = elementsContent.map(({ slug, title, description }) => ({
-	title,
-	description,
-	link: `/elements/${slug}`,
-}));
+const cards: CardData[] = elementsContent.map(
+  ({ slug, title, description }) => ({
+    title,
+    description,
+    link: `/elements/${slug}`,
+  })
+);
 ---
 
 <MainLayout title="HTML Gems Uncovered">
-	<header class="text-center mb-12">
-		<h1 class="text-5xl font-bold mb-2">HTML Gems Uncovered</h1>
-		<p class="text-xl text-theme-highlight">A collection of powerful and underused HTML elements.</p>
-	</header>
-	<Grid cards={cards} />
+  <section
+    class="relative flex flex-col items-center justify-center text-center py-16 md:py-24 bg-gradient-to-b from-theme-secondary/80 to-theme-primary/60 rounded-3xl shadow-lg mb-12 overflow-hidden"
+  >
+    <div
+      class="absolute inset-0 pointer-events-none select-none opacity-10 bg-[url('/images/icon-gray.webp')] bg-center bg-no-repeat bg-contain"
+    >
+    </div>
+    <div class="relative z-10 flex flex-col items-center">
+      <div class="mb-6">
+        <span
+          class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-theme-accent/10 border-4 border-theme-accent mb-2"
+        >
+          <img src="/images/icon.webp" alt="Gem Icon" class="w-12 h-12" />
+        </span>
+      </div>
+      <h1
+        class="text-5xl md:text-6xl font-extrabold text-theme-highlight mb-4 drop-shadow-lg"
+      >
+        HTML Gems Uncovered
+      </h1>
+      <p class="text-2xl md:text-3xl text-theme-text mb-4 font-medium">
+        A collection of powerful and underused HTML elements
+      </p>
+      <p class="max-w-2xl text-lg md:text-xl text-theme-text/80 mb-8">
+        Discover hidden HTML elements that can supercharge your web projects.
+        Explore, learn, and get inspired by practical examples and code
+        snippets.
+      </p>
+      <a
+        href="#gems"
+        class="inline-block px-8 py-3 rounded-full bg-theme-accent text-theme-secondary font-semibold text-lg shadow hover:bg-theme-highlight transition-colors duration-200"
+        >Browse Gems</a
+      >
+    </div>
+  </section>
+
+  <div class="flex justify-center mb-12">
+    <span class="inline-block w-24 h-1 rounded-full bg-theme-accent/40"></span>
+  </div>
+
+  <section id="gems">
+    <h2
+      class="text-3xl md:text-4xl font-bold text-theme-highlight mb-8 text-center"
+    >
+      Elements
+    </h2>
+    <Grid cards={cards} />
+  </section>
+
+  <footer class="mt-16 text-center text-theme-text/60 text-sm py-8">
+    <a
+      href="https://github.com/NickEsColR/html-gems"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center gap-1 underline hover:text-theme-accent"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 16 16"
+        fill="currentColor"
+        class="w-4 h-4"
+        aria-hidden="true"
+      >
+        <path
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.1 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.09.16 1.9.08 2.1.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+        ></path>
+      </svg>
+      NickEsColR
+    </a>
+  </footer>
 </MainLayout>
