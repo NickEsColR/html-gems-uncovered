@@ -10,6 +10,8 @@ import { DATALIST_HTML_CODE } from "@/src/consts/datalistCode";
 import { METER_HTML_CODE } from "@/src/consts/meterCode";
 import Output from "@/src/components/elements/Output.astro";
 import { OUTPUT_HTML_CODE } from "@/src/consts/outputCode";
+import Mark from "@/src/components/elements/Mark.astro";
+import { MARK_HTML_CODE } from "@/src/consts/markCode";
 
 interface ElementContent {
     slug: string;
@@ -116,5 +118,24 @@ export const elementsContent: ElementContent[] = [
             }
         ],
         DemoComponent: Output // Placeholder, no Output.astro component yet
+    },
+    {
+        slug: "mark",
+        title: "Mark Element",
+        elementName: "The <mark> Element",
+        description: "The <mark> element is used for semantic highlighting of text, indicating that the text is relevant or important, such as search term matches. It provides meaning to assistive technologies, unlike a plain <span>.",
+        whenToUse: [
+            "Use the <mark> element to highlight search terms or important text in documentation, search results, or knowledge bases.",
+            "It is especially useful for accessibility, as screen readers can announce that text is highlighted.",
+            "Customize its appearance with CSS or Tailwind classes for a better user experience."
+        ],
+        snippets: [
+            {
+                code: MARK_HTML_CODE,
+                lang: "html",
+                title: "HTML",
+            }
+        ],
+        DemoComponent: Mark
     }
 ]; 
