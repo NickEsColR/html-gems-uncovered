@@ -3,28 +3,13 @@ import MainLayout from "@/src/layouts/MainLayout.astro";
 import Grid from "@/src/components/Grid.astro";
 import type { CardData } from "@/src/types/cardData";
 
-const cards: CardData[] = [
-	{
-		title: "Dialog",
-		description: "Create accessible modal dialogs and popups.",
-		link: "/elements/dialog",
-	},
-	{
-		title: "Details & Summary",
-		description: "Create native accordions and collapsible content.",
-		link: "/elements/details",
-	},
-	{
-		title: "Datalist",
-		description: "Provide autocomplete suggestions for input fields.",
-		link: "/elements/datalist",
-	},
-	{
-		title: "Meter",
-		description: "Display scalar measurements within a known range.",
-		link: "/elements/meter",
-	},
-];
+import { elementsContent } from "@/src/content/elements";
+
+const cards: CardData[] = elementsContent.map(({ slug, title, description }) => ({
+	title,
+	description,
+	link: `/elements/${slug}`,
+}));
 ---
 
 <MainLayout title="HTML Gems Uncovered">
