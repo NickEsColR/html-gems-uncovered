@@ -12,6 +12,8 @@ import Output from "@/src/components/elements/Output.astro";
 import { OUTPUT_HTML_CODE } from "@/src/consts/outputCode";
 import Mark from "@/src/components/elements/Mark.astro";
 import { MARK_HTML_CODE } from "@/src/consts/markCode";
+import Time from "@/src/components/elements/Time.astro";
+import { TIME_HTML_CODE } from "@/src/consts/timeCode";
 
 interface ElementContent {
     slug: string;
@@ -137,5 +139,24 @@ export const elementsContent: ElementContent[] = [
             }
         ],
         DemoComponent: Mark
+    },
+    {
+        slug: "time",
+        title: "Time Element",
+        elementName: "The <time> Element",
+        description: "The <time> element is used to mark up dates, times, or durations in a machine-readable way, while displaying a human-friendly format to users. The datetime attribute uses the ISO 8601 format, making it useful for search engines, browsers, and assistive technologies.",
+        whenToUse: [
+            "Use the <time> element to semantically mark up dates, times, or durations in your content.",
+            "It is especially valuable for blogs, news sites, and social media platforms where accurate date and time information is important.",
+            "The datetime attribute allows machines to extract and process the date/time, while users see a friendly format."
+        ],
+        snippets: [
+            {
+                code: TIME_HTML_CODE,
+                lang: "html",
+                title: "HTML",
+            }
+        ],
+        DemoComponent: Time
     }
 ]; 
